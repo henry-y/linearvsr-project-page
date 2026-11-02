@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LinearVSR: Algorithm-System Co-Design for Real-Time Diffusion Video Super-Resolution</title>
+  <meta name="description" content="LinearVSR is a one-step streaming video super-resolution system built on a linear-attention diffusion transformer, reaching 48 FPS at 2K and 17 FPS at 4K on a single H200.">
+  <meta name="theme-color" content="#06070a">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/compare.js"></script>
+</head>
+<body>
+<div id="backdrop" aria-hidden="true"></div>
+
+<!-- ====================== Intro ====================== -->
+<section id="intro">
+  <div class="wrap">
+    <h1 class="title-art">LinearVSR</h1>
+    <div class="subtitle-line">Algorithm&ndash;System Co-Design for Real-Time Diffusion Video Super-Resolution</div>
+    <div class="authors">
+      <span class="author-block"><a href="#">Anonymous Authors<sup>1</sup></a></span>
+    </div>
+    <div class="affiliations">
+      <p><sup>1</sup>Peking University</p>
+    </div>
+    <div class="links">
+      <a class="button disabled" href="#" onclick="return false"><i class="far fa-file-alt"></i> arXiv (soon)</a>
+      <a class="button disabled" href="#" onclick="return false"><i class="fab fa-github"></i> Code (soon)</a>
+      <a class="button" href="#long-section"><i class="fas fa-film"></i> 30s Demo</a>
+      <a class="button" href="#gallery-section"><i class="fas fa-images"></i> Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Teaser ====================== -->
+<section class="block" id="teaser-section" style="margin-top:40px">
+  <div class="wrap">
+    <figure class="figure-card" style="margin:0">
+      <img src="static/images/teaser.jpg" alt="LinearVSR teaser: 2K results, quality versus speed, and the latency breakdown" loading="eager">
+    </figure>
+    <p class="caption">
+      (a) &times;4 results at 2K. (b) Perceptual quality (DOVER on UDM10) versus throughput at 2K: LinearVSR is the fastest and the
+      best. (c) Latency of one 33-frame chunk at 2K on one H200 as each component is added: 2217&nbsp;ms &rarr; 693&nbsp;ms.
+    </p>
+  </div>
+</section>
+
+<!-- ====================== Gallery ====================== -->
+<section class="block" id="gallery-section">
+  <div class="wrap">
+    <h3 class="section-head">Gallery</h3>
+    <p class="section-sub">
+      &times;4 super-resolution from 320&times;176 inputs to 1280&times;704. The inputs are lightly degraded
+      (slight blur, &times;4 downscaling, mild noise and H.264 compression). Drag across any clip to compare; press
+      <i class="fas fa-expand"></i> to view it large and zoom into the details.
+    </p>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid-gallery" id="grid"></div>
+  </div>
+</section>
+
+<!-- ====================== Hero: long video ====================== -->
+<section class="block" id="long-section">
+  <div class="wrap">
+    <div class="long-head">
+      <h3 class="section-head">30-Second Streaming Demo</h3>
+      <span class="pill"><i class="fas fa-bolt"></i>&nbsp; one step &middot; streamed in 33-frame chunks</span>
+    </div>
+    <p class="section-sub">
+      Half-minute clips restored end to end by the deployed model. LinearVSR processes the video as a stream of
+      33-frame chunks and carries only the softmax-attention KV-cache of the previous chunk, so memory and per-chunk latency
+      stay constant however long the video is &mdash; and no seams appear at chunk boundaries. Drag across any clip to
+      compare; press <i class="fas fa-expand"></i> to watch it large.
+    </p>
+    <div class="grid-gallery" id="long-grid"></div>
+  </div>
+</section>
+
+<!-- ====================== Speed race ====================== -->
+<section class="block" id="race-section">
+  <div class="wrap">
+    <h3 class="section-head">Real Time, for Real</h3>
+    <p class="section-sub">
+      A live 30&nbsp;fps stream is processed chunk by chunk. At 2K, LinearVSR restores a 33-frame chunk in 693&nbsp;ms, faster
+      than the 1.07&nbsp;s it takes the next 32 frames to arrive, so playback never stalls after the first chunk.
+      FlashVSR-Tiny needs 3.7&nbsp;s per chunk and keeps falling behind. Both panels show each model's real output on the same input; timings are the measured 2K throughputs (one H200).
+    </p>
+    <div class="anim-frame"><video src="static/videos/anim_speed-race.mp4" muted playsinline loop autoplay preload="auto"></video></div>
+  </div>
+</section>
+
+<!-- ====================== Highlights ====================== -->
+<section class="block" id="highlights">
+  <div class="wrap">
+    <h3 class="section-head">Performance at a Glance</h3>
+    <p class="section-sub">
+      One denoising step, a linear-attention DiT, a cascaded latent-upsampling encoder, a pruned decoder adapted to predicted
+      latents, and fused kernels across the whole pipeline. Measured on a single NVIDIA H200, BF16, 33-frame chunks.
+    </p>
+    <div class="hl-cards">
+      <div class="hl-card">
+        <div class="hl-name">2K Throughput <span>1408&times;2560 output</span></div>
+        <div class="hl-label">End-to-end</div>
+        <div class="hl-perf">47.6 FPS</div>
+        <div class="hl-divider"></div>
+        <div class="hl-label">Latency per chunk</div>
+        <div class="hl-badge">693 ms &middot; 33 frames</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-name">4K Throughput <span>2176&times;3840 output</span></div>
+        <div class="hl-label">End-to-end</div>
+        <div class="hl-perf">17.4 FPS</div>
+        <div class="hl-divider"></div>
+        <div class="hl-label">Approaching</div>
+        <div class="hl-badge">real-time 4K</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-name">vs. SeedVR2 <span>2K, same GPU</span></div>
+        <div class="hl-label">Speedup</div>
+        <div class="hl-perf">118&times;</div>
+        <div class="hl-divider"></div>
+        <div class="hl-label">vs. DOVE</div>
+        <div class="hl-badge">61&times; faster</div>
+      </div>
+      <div class="hl-card">
+        <div class="hl-name">Co-Design <span>vs. full-attention baseline</span></div>
+        <div class="hl-label">End-to-end speedup</div>
+        <div class="hl-perf">3.20&times;</div>
+        <div class="hl-divider"></div>
+        <div class="hl-label">Kernel fusion alone</div>
+        <div class="hl-badge">1.63&times; at 2K</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== How it works ====================== -->
+<section class="block" id="method-section">
+  <div class="wrap">
+    <h3 class="section-head">How It Works</h3>
+    <p class="section-sub">
+      With one-step distillation the VAE encoder and decoder cost as much as the DiT, so every module has to be fast.
+      LinearVSR co-designs all of them: a cascaded latent-upsampling encoder, a linear-attention DiT trained in four stages for
+      one-step streaming, a pruned decoder adapted to predicted latents, and fused kernels across the whole pipeline.
+    </p>
+    <figure class="figure-card" style="margin:0 0 28px">
+      <img src="static/images/pipeline.jpg" alt="LinearVSR four-stage training pipeline" loading="lazy">
+    </figure>
+    <div class="mod-tabs" id="mod-tabs"></div>
+    <div class="anim-frame"><video id="mod-video" muted playsinline preload="auto"></video></div>
+  </div>
+</section>
+
+<!-- ====================== Abstract ====================== -->
+<section class="block abstract" id="abstract-section">
+  <div class="wrap">
+    <h3 class="section-head">Abstract</h3>
+    <p>
+      Recent one-step diffusion models have advanced video super-resolution (VSR) quality, but real-time streaming at
+      beyond-HD resolutions remains out of reach: even with single-step inference, the VAE encoder, decoder, and
+      high-resolution latent processing dominate end-to-end latency. We present <b>LinearVSR</b>, to our knowledge the first
+      VSR system built on a linear-attention diffusion transformer, achieving real-time beyond-HD super-resolution through
+      algorithm&ndash;system co-design.
+    </p>
+    <p>
+      On the algorithm side, a four-stage training pipeline progressively enables conditional restoration, one-step
+      inference, streaming execution with cross-chunk KV-cache state transfer, and perceptual refinement. A cascaded
+      latent-upsampling encoder and a structurally pruned decoder with predicted-latent adaptation jointly reduce the VAE
+      overhead. On the system side, end-to-end kernel fusion and memory-aware tensor layouts further lower latency across
+      the entire pipeline. LinearVSR reaches <span class="hl">48 FPS</span> at 1408&times;2560 and
+      <span class="hl">17 FPS</span> at 2176&times;3840 on a single H200 GPU, making it the fastest diffusion-based VSR
+      method to date, with competitive restoration quality on standard VSR benchmarks.
+    </p>
+  </div>
+</section>
+
+<!-- ====================== Speed table ====================== -->
+<section class="block" id="speed-section">
+  <div class="wrap">
+    <h3 class="section-head">Inference Speed</h3>
+    <p class="section-sub">End-to-end latency at 2K (1408&times;2560, 33 frames, single H200, BF16), model forward passes only.</p>
+    <div class="speed-callout">
+      <div><span class="num">118&times;</span><span class="lbl">faster than SeedVR2</span></div>
+      <div><span class="num">61&times;</span><span class="lbl">faster than DOVE</span></div>
+      <div><span class="num">5.4&times;</span><span class="lbl">faster than FlashVSR-Tiny</span></div>
+      <div><span class="num">1.6&times;</span><span class="lbl">faster than SwiftVR</span></div>
+    </div>
+    <div class="bar-cards">
+      <div class="bar-card" style="flex:1 1 560px">
+        <div class="bar-head"><span class="t">Frames per second at 2K</span><span class="big">47.6 FPS</span></div>
+        <div class="bar-sub">higher is better &middot; right column: LinearVSR speedup (latency ratio)</div>
+        <div class="bar-row"><span class="bar-label ours">LinearVSR</span><div class="bar-track"><div class="bar-fill ours" style="--value: 47.6; --scale: 50"></div></div><span class="bar-value">47.6</span><span class="bar-x ours">693 ms</span></div>
+        <div class="bar-row"><span class="bar-label">SwiftVR</span><div class="bar-track"><div class="bar-fill base" style="--value: 30.7; --scale: 50"></div></div><span class="bar-value">30.7</span><span class="bar-x">1.6&times;</span></div>
+        <div class="bar-row"><span class="bar-label">FlashVSR-Tiny</span><div class="bar-track"><div class="bar-fill base" style="--value: 8.86; --scale: 50"></div></div><span class="bar-value">8.86</span><span class="bar-x">5.4&times;</span></div>
+        <div class="bar-row"><span class="bar-label">DOVE</span><div class="bar-track"><div class="bar-fill base" style="--value: 0.78; --scale: 50"></div></div><span class="bar-value">0.78</span><span class="bar-x">61&times;</span></div>
+        <div class="bar-row"><span class="bar-label">SeedVR2</span><div class="bar-track"><div class="bar-fill base" style="--value: 0.40; --scale: 50"></div></div><span class="bar-value">0.40</span><span class="bar-x big">118&times;</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== Benchmarks ====================== -->
+<section class="block" id="bench-section">
+  <div class="wrap">
+    <h3 class="section-head">Benchmark Results</h3>
+    <p class="section-sub">&times;4 VSR on synthetic and real-world benchmarks (paper Tab. 1).
+      <span class="rk r1">best</span> <span class="rk r2">second</span> <span class="rk r3">third</span></p>
+    <div class="tabs" id="bench-tabs"></div>
+    <div class="bench-wrap"><table class="bench" id="bench-table"></table></div>
+  </div>
+</section>
+
+
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <button class="close" id="modal-close" aria-label="Close"><i class="fas fa-times"></i></button>
+  <div class="inner">
+    <div id="modal-viewer"></div>
+    <div class="cmp-bar" id="modal-bar"></div>
+    <div class="cmp-meta" id="modal-meta"></div>
+  </div>
+</div>
+
+<script src="static/js/page.js"></script>
+<script src="static/js/bench.js"></script>
+</body>
+</html>

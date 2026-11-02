@@ -1,0 +1,260 @@
+{
+ "longs": [
+  {
+   "id": "long_watch",
+   "title": "Watch movement",
+   "video": "static/videos/long_watch_cmp.mp4",
+   "poster": "static/videos/long_watch_poster.jpg",
+   "frames": 897,
+   "fps": 29.97,
+   "small": "static/videos/long_watch_cmp_s.mp4"
+  },
+  {
+   "id": "long_reef",
+   "title": "Coral reef tank",
+   "video": "static/videos/long_reef_cmp.mp4",
+   "poster": "static/videos/long_reef_poster.jpg",
+   "frames": 737,
+   "fps": 25.0,
+   "small": "static/videos/long_reef_cmp_s.mp4"
+  },
+  {
+   "id": "long_jelly",
+   "title": "Blue jellyfish",
+   "video": "static/videos/long_jelly_cmp.mp4",
+   "poster": "static/videos/long_jelly_poster.jpg",
+   "frames": 705,
+   "fps": 24.0,
+   "small": "static/videos/long_jelly_cmp_s.mp4"
+  },
+  {
+   "id": "long_ktv_zhaodaoni",
+   "title": "\u9648\u660e\u300a\u6211\u8981\u627e\u5230\u4f60\u300b",
+   "video": "static/videos/long_ktv_zhaodaoni_cmp.mp4",
+   "poster": "static/videos/long_ktv_zhaodaoni_poster.jpg",
+   "frames": 897,
+   "fps": 30.0,
+   "small": "static/videos/long_ktv_zhaodaoni_cmp_s.mp4"
+  },
+  {
+   "id": "long_ktv_wenhelei",
+   "title": "\u5468\u5b50\u5bd2\u300a\u543b\u548c\u6cea\u300b",
+   "video": "static/videos/long_ktv_wenhelei_cmp.mp4",
+   "poster": "static/videos/long_ktv_wenhelei_poster.jpg",
+   "frames": 897,
+   "fps": 30.0,
+   "small": "static/videos/long_ktv_wenhelei_cmp_s.mp4"
+  },
+  {
+   "id": "long_ktv_huore",
+   "title": "\u6797\u5fd7\u9896\u300a\u706b\u70ed\u7684\u5fc3\u300b",
+   "video": "static/videos/long_ktv_huore_cmp.mp4",
+   "poster": "static/videos/long_ktv_huore_poster.jpg",
+   "frames": 897,
+   "fps": 30.0,
+   "small": "static/videos/long_ktv_huore_cmp_s.mp4"
+  }
+ ],
+ "cases": [
+  {
+   "id": "g_flycity",
+   "title": "Flying cars at night",
+   "video": "static/videos/g_flycity_cmp.mp4",
+   "poster": "static/videos/g_flycity_poster.jpg",
+   "frames": 129,
+   "fps": 25.0,
+   "small": "static/videos/g_flycity_cmp_s.mp4",
+   "cat": "CG / Game"
+  },
+  {
+   "id": "a_owl",
+   "title": "Burrowing owl",
+   "video": "static/videos/a_owl_cmp.mp4",
+   "poster": "static/videos/a_owl_poster.jpg",
+   "frames": 129,
+   "fps": 29.97,
+   "small": "static/videos/a_owl_cmp_s.mp4",
+   "cat": "Animals"
+  },
+  {
+   "id": "n_lilac",
+   "title": "Lilac basket",
+   "video": "static/videos/n_lilac_cmp.mp4",
+   "poster": "static/videos/n_lilac_poster.jpg",
+   "frames": 129,
+   "fps": 25.0,
+   "small": "static/videos/n_lilac_cmp_s.mp4",
+   "cat": "Nature"
+  },
+  {
+   "id": "c_windmill",
+   "title": "Windmill village",
+   "video": "static/videos/c_windmill_cmp.mp4",
+   "poster": "static/videos/c_windmill_poster.jpg",
+   "frames": 129,
+   "fps": 25.0,
+   "small": "static/videos/c_windmill_cmp_s.mp4",
+   "cat": "Places"
+  },
+  {
+   "id": "v_wheel",
+   "title": "Supercar wheel",
+   "video": "static/videos/v_wheel_cmp.mp4",
+   "poster": "static/videos/v_wheel_poster.jpg",
+   "frames": 97,
+   "fps": 25.0,
+   "small": "static/videos/v_wheel_cmp_s.mp4",
+   "cat": "Objects"
+  },
+  {
+   "id": "w_shorthair",
+   "title": "Short hair, soft light",
+   "video": "static/videos/w_shorthair_cmp.mp4",
+   "poster": "static/videos/w_shorthair_poster.jpg",
+   "frames": 97,
+   "fps": 23.98,
+   "small": "static/videos/w_shorthair_cmp_s.mp4",
+   "cat": "People"
+  },
+  {
+   "id": "g_spaceship",
+   "title": "Ring ship at sunset",
+   "video": "static/videos/g_spaceship_cmp.mp4",
+   "poster": "static/videos/g_spaceship_poster.jpg",
+   "frames": 129,
+   "fps": 24.0,
+   "small": "static/videos/g_spaceship_cmp_s.mp4",
+   "cat": "CG / Game"
+  },
+  {
+   "id": "n_yak",
+   "title": "Highland yak",
+   "video": "static/videos/n_yak_cmp.mp4",
+   "poster": "static/videos/n_yak_poster.jpg",
+   "frames": 65,
+   "fps": 30.0,
+   "small": "static/videos/n_yak_cmp_s.mp4",
+   "cat": "Animals"
+  },
+  {
+   "id": "f_kitchen",
+   "title": "Fresh vegetables",
+   "video": "static/videos/f_kitchen_cmp.mp4",
+   "poster": "static/videos/f_kitchen_poster.jpg",
+   "frames": 97,
+   "fps": 30.0,
+   "small": "static/videos/f_kitchen_cmp_s.mp4",
+   "cat": "Food"
+  },
+  {
+   "id": "n_protea",
+   "title": "Protea macro",
+   "video": "static/videos/n_protea_cmp.mp4",
+   "poster": "static/videos/n_protea_poster.jpg",
+   "frames": 129,
+   "fps": 25.0,
+   "small": "static/videos/n_protea_cmp_s.mp4",
+   "cat": "Nature"
+  },
+  {
+   "id": "s_redcar",
+   "title": "Red sports car",
+   "video": "static/videos/s_redcar_cmp.mp4",
+   "poster": "static/videos/s_redcar_poster.jpg",
+   "frames": 97,
+   "fps": 25.0,
+   "small": "static/videos/s_redcar_cmp_s.mp4",
+   "cat": "Objects"
+  },
+  {
+   "id": "g_neoncube",
+   "title": "Neon hologram",
+   "video": "static/videos/g_neoncube_cmp.mp4",
+   "poster": "static/videos/g_neoncube_poster.jpg",
+   "frames": 161,
+   "fps": 29.97,
+   "small": "static/videos/g_neoncube_cmp_s.mp4",
+   "cat": "CG / Game"
+  },
+  {
+   "id": "a_orangecat",
+   "title": "Orange cat",
+   "video": "static/videos/a_orangecat_cmp.mp4",
+   "poster": "static/videos/a_orangecat_poster.jpg",
+   "frames": 97,
+   "fps": 25.0,
+   "small": "static/videos/a_orangecat_cmp_s.mp4",
+   "cat": "Animals"
+  },
+  {
+   "id": "f_pastry",
+   "title": "Pastries",
+   "video": "static/videos/f_pastry_cmp.mp4",
+   "poster": "static/videos/f_pastry_poster.jpg",
+   "frames": 65,
+   "fps": 30.0,
+   "small": "static/videos/f_pastry_cmp_s.mp4",
+   "cat": "Food"
+  },
+  {
+   "id": "n_calendula",
+   "title": "Marigolds",
+   "video": "static/videos/n_calendula_cmp.mp4",
+   "poster": "static/videos/n_calendula_poster.jpg",
+   "frames": 97,
+   "fps": 23.98,
+   "small": "static/videos/n_calendula_cmp_s.mp4",
+   "cat": "Nature"
+  },
+  {
+   "id": "l_mountain",
+   "title": "Icelandic highlands",
+   "video": "static/videos/l_mountain_cmp.mp4",
+   "poster": "static/videos/l_mountain_poster.jpg",
+   "frames": 161,
+   "fps": 30.0,
+   "small": "static/videos/l_mountain_cmp_s.mp4",
+   "cat": "Nature"
+  },
+  {
+   "id": "s_pool",
+   "title": "Marble pool",
+   "video": "static/videos/s_pool_cmp.mp4",
+   "poster": "static/videos/s_pool_poster.jpg",
+   "frames": 129,
+   "fps": 29.97,
+   "small": "static/videos/s_pool_cmp_s.mp4",
+   "cat": "Places"
+  },
+  {
+   "id": "t_thatch",
+   "title": "Thatched roof",
+   "video": "static/videos/t_thatch_cmp.mp4",
+   "poster": "static/videos/t_thatch_poster.jpg",
+   "frames": 97,
+   "fps": 29.97,
+   "small": "static/videos/t_thatch_cmp_s.mp4",
+   "cat": "Places"
+  },
+  {
+   "id": "l_seastack",
+   "title": "Sea stack",
+   "video": "static/videos/l_seastack_cmp.mp4",
+   "poster": "static/videos/l_seastack_poster.jpg",
+   "frames": 161,
+   "fps": 29.97,
+   "small": "static/videos/l_seastack_cmp_s.mp4",
+   "cat": "Nature"
+  },
+  {
+   "id": "w_red",
+   "title": "Portrait in red",
+   "video": "static/videos/w_red_cmp.mp4",
+   "poster": "static/videos/w_red_poster.jpg",
+   "frames": 129,
+   "fps": 23.98,
+   "small": "static/videos/w_red_cmp_s.mp4",
+   "cat": "People"
+  }
+ ]
+}
